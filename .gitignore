@@ -1,0 +1,22 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+docs/
+*.DS_Store
+README.html
+data-raw/**/*.nii
+data-raw/**/*.nii.gz
+data-raw/**/*.mgz
+*.nii
+*.nii.gz
+*.mgz
+*.mat
+
+# Pipeline intermediates, one directory per scale
+data-raw/s[1-4]/
+data-raw/s[1-4]_7t/
+
+# Published source volumes are tracked: 264K total, and without them the
+# build script cannot be re-run from a fresh clone.
+!data-raw/source/*.nii.gz
