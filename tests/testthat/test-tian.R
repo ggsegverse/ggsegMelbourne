@@ -1,12 +1,12 @@
 atlases <- list(
-  tian_s1 = list(atlas = tian_s1, per_hemi = 8),
-  tian_s2 = list(atlas = tian_s2, per_hemi = 16),
-  tian_s3 = list(atlas = tian_s3, per_hemi = 25),
-  tian_s4 = list(atlas = tian_s4, per_hemi = 27),
-  tian_s1_7t = list(atlas = tian_s1_7t, per_hemi = 8),
-  tian_s2_7t = list(atlas = tian_s2_7t, per_hemi = 17),
-  tian_s3_7t = list(atlas = tian_s3_7t, per_hemi = 27),
-  tian_s4_7t = list(atlas = tian_s4_7t, per_hemi = 31)
+  tian_s1 = list(atlas = tian_s1, per_hemi = 8L),
+  tian_s2 = list(atlas = tian_s2, per_hemi = 16L),
+  tian_s3 = list(atlas = tian_s3, per_hemi = 25L),
+  tian_s4 = list(atlas = tian_s4, per_hemi = 27L),
+  tian_s1_7t = list(atlas = tian_s1_7t, per_hemi = 8L),
+  tian_s2_7t = list(atlas = tian_s2_7t, per_hemi = 17L),
+  tian_s3_7t = list(atlas = tian_s3_7t, per_hemi = 27L),
+  tian_s4_7t = list(atlas = tian_s4_7t, per_hemi = 31L)
 )
 
 for (nm in names(atlases)) {
@@ -24,10 +24,10 @@ for (nm in names(atlases)) {
 
       it("has the published number of structures per hemisphere", {
         core <- spec$atlas()$core
-        expect_equal(nrow(core), spec$per_hemi * 2)
-        expect_equal(
+        expect_identical(nrow(core), spec$per_hemi * 2L)
+        expect_identical(
           as.integer(table(core$hemi)[c("left", "right")]),
-          rep(spec$per_hemi, 2)
+          rep(spec$per_hemi, 2L)
         )
       })
 
