@@ -1,4 +1,4 @@
 library(testthat)
-library(ggsegTian)
+library(ggsegMelbourne)
 
-test_check("ggsegTian")
+test_check("ggsegMelbourne")

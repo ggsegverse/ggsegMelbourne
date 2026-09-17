@@ -1,4 +1,4 @@
-Package: ggsegTian
+Package: ggsegMelbourne
 Title: Melbourne Subcortex Atlas for the 'ggsegverse' Ecosystem
 Version: 0.0.0.9000
 Authors@R: c(person("Athanasia Mo", "Mowinckel",
@@ -31,8 +31,8 @@ Suggests:
     vdiffr
 Remotes:
     ggsegverse/ggseg
-URL: https://github.com/ggsegverse/ggsegTian
-BugReports: https://github.com/ggsegverse/ggsegTian/issues
+URL: https://github.com/ggsegverse/ggsegMelbourne
+BugReports: https://github.com/ggsegverse/ggsegMelbourne/issues
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
 Config/Needs/website: ggsegverse/ggseg.docs

@@ -20,7 +20,7 @@
 #
 # Requires: ggseg.extra, ggseg.formats, FreeSurfer 7.4.1 with fsaverage5.
 #
-# Run with: Rscript data-raw/make_tian.R [scale ...]
+# Run with: Rscript data-raw/make_melbourne.R [scale ...]
 
 library(ggseg.extra)
 library(ggseg.formats)
@@ -38,7 +38,13 @@ source_dir <- file.path(data_raw, "source")
 
 # Melbourne ids start at 1 and would collide with the aseg ids kept as grey
 # context, so every parcel is shifted clear before it is stamped in.
-id_offset <- 1000L
+#
+# The shift has to clear the aseg ids from below and stay under 1000 from
+# above. Labels from 1000 to 2999 are where an aparc+aseg puts its cortical
+# parcels, and a pipeline that finds parcels in that range reads them as the
+# cortex: the parcels become the brain silhouette and the cortical ribbon
+# never gets drawn.
+id_offset <- 300L
 
 scales <- commandArgs(trailingOnly = TRUE)
 if (length(scales) == 0) {
@@ -238,7 +244,7 @@ build_scale <- function(scale) {
 
   raw <- create_subcortical_from_volume(
     input_volume = merged,
-    atlas_name = paste0("tian_", tolower(scale)),
+    atlas_name = paste0("melbourne_", tolower(scale)),
     output_dir = work_dir,
     slabs = slabs,
     skip_existing = FALSE,
@@ -249,6 +255,11 @@ build_scale <- function(scale) {
   # parcels are grown a little to survive at plotting size; the silhouette is
   # not, since dilating it closes the sulci. Simplify before smoothing, or the
   # dropped vertices put the voxel staircase back.
+  #
+  # The two are smoothed at different strengths. The parcels are small, blocky
+  # and read as shapes, so they take a heavy pass; the silhouette is a gyrified
+  # ribbon whose detail *is* the anatomy, and smoothing it that hard closes the
+  # sulci and fills the interior back in.
   atlas <- raw |>
     aseg_context(
       focus = paste(lut$label, collapse = "|"),
@@ -257,8 +268,9 @@ build_scale <- function(scale) {
     atlas_view_gather() |>
     atlas_dilate(0.6, exclude = "^cortex") |>
     atlas_simplify(keep = 0.2, labels = "^cortex") |>
-    atlas_simplify(keep = 0.25, exclude = "^cortex") |>
-    atlas_smooth(smoothness = 0.4) |>
+    atlas_simplify(keep = 0.35, exclude = "^cortex") |>
+    atlas_smooth(smoothness = 0.3, labels = "^cortex") |>
+    atlas_smooth(smoothness = 0.9, exclude = "^cortex") |>
     draw_order()
 
   cli::cli_alert_success(
@@ -276,9 +288,9 @@ if (file.exists(sysdata_path)) {
 # Saved after each scale rather than once at the end, so a scale that fails
 # does not discard the hour of pipeline runs before it.
 for (scale in scales) {
-  assign(paste0(".tian_", tolower(scale)), build_scale(scale))
+  assign(paste0(".melbourne_", tolower(scale)), build_scale(scale))
 
-  built <- ls(all.names = TRUE, pattern = "^\\.tian_")
+  built <- ls(all.names = TRUE, pattern = "^\\.melbourne_")
   save(list = built, file = sysdata_path, compress = "xz", version = 3)
   cli::cli_alert_success(
     "Saved {length(built)} atlas{?es} to {.path {sysdata_path}}"

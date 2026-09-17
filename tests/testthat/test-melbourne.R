@@ -1,12 +1,12 @@
 atlases <- list(
-  tian_s1 = list(atlas = tian_s1, per_hemi = 8L),
-  tian_s2 = list(atlas = tian_s2, per_hemi = 16L),
-  tian_s3 = list(atlas = tian_s3, per_hemi = 25L),
-  tian_s4 = list(atlas = tian_s4, per_hemi = 27L),
-  tian_s1_7t = list(atlas = tian_s1_7t, per_hemi = 8L),
-  tian_s2_7t = list(atlas = tian_s2_7t, per_hemi = 17L),
-  tian_s3_7t = list(atlas = tian_s3_7t, per_hemi = 27L),
-  tian_s4_7t = list(atlas = tian_s4_7t, per_hemi = 31L)
+  melbourne_s1 = list(atlas = melbourne_s1, per_hemi = 8L),
+  melbourne_s2 = list(atlas = melbourne_s2, per_hemi = 16L),
+  melbourne_s3 = list(atlas = melbourne_s3, per_hemi = 25L),
+  melbourne_s4 = list(atlas = melbourne_s4, per_hemi = 27L),
+  melbourne_s1_7t = list(atlas = melbourne_s1_7t, per_hemi = 8L),
+  melbourne_s2_7t = list(atlas = melbourne_s2_7t, per_hemi = 17L),
+  melbourne_s3_7t = list(atlas = melbourne_s3_7t, per_hemi = 27L),
+  melbourne_s4_7t = list(atlas = melbourne_s4_7t, per_hemi = 31L)
 )
 
 for (nm in names(atlases)) {
@@ -60,31 +60,37 @@ for (nm in names(atlases)) {
   })
 }
 
-describe("tian_s1()", {
+describe("melbourne_s1()", {
   it("names the thalamic divisions", {
     expect_setequal(
-      grep("^thalamus", tian_s1()$core$region, value = TRUE),
+      grep("^thalamus", melbourne_s1()$core$region, value = TRUE),
       rep(c("thalamus anterior", "thalamus posterior"), 2)
     )
   })
 
   it("renders with ggseg", {
     skip_if_not_installed("ggseg")
-    expect_doppelganger("tian_s1-2d", ggseg::brain_test_plot(tian_s1()))
+    expect_doppelganger(
+      "melbourne_s1-2d",
+      ggseg::brain_test_plot(melbourne_s1())
+    )
   })
 })
 
-describe("tian_s4()", {
+describe("melbourne_s4()", {
   it("renders with ggseg", {
     skip_if_not_installed("ggseg")
-    expect_doppelganger("tian_s4-2d", ggseg::brain_test_plot(tian_s4()))
+    expect_doppelganger(
+      "melbourne_s4-2d",
+      ggseg::brain_test_plot(melbourne_s4())
+    )
   })
 })
 
 describe("the scales nest", {
   it("splits every scale I structure into finer parcels", {
-    parents <- unique(sub("_(Left|Right)$", "", tian_s1()$core$label))
-    children <- unique(sub("_(Left|Right)$", "", tian_s4()$core$label))
+    parents <- unique(sub("_(Left|Right)$", "", melbourne_s1()$core$label))
+    children <- unique(sub("_(Left|Right)$", "", melbourne_s4()$core$label))
     expect_gt(length(children), length(parents))
   })
 })

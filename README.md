@@ -2,11 +2,11 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-# ggsegTian
+# ggsegMelbourne
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ggsegverse/ggsegTian/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegTian/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ggsegverse/ggsegMelbourne/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ggsegverse/ggsegMelbourne/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
@@ -23,12 +23,12 @@ Each scale ships in a 3 Tesla and a 7 Tesla variant; the 7T
 parcellations are derived from higher resolution data and are slightly
 finer at the same scale.
 
-| Scale | 3T          | Structures/hemi | 7T             | Structures/hemi |
-|-------|-------------|-----------------|----------------|-----------------|
-| I     | `tian_s1()` | 8               | `tian_s1_7t()` | 8               |
-| II    | `tian_s2()` | 16              | `tian_s2_7t()` | 17              |
-| III   | `tian_s3()` | 25              | `tian_s3_7t()` | 27              |
-| IV    | `tian_s4()` | 27              | `tian_s4_7t()` | 31              |
+| Scale | 3T               | Structures/hemi | 7T                  | Structures/hemi |
+|-------|------------------|-----------------|---------------------|-----------------|
+| I     | `melbourne_s1()` | 8               | `melbourne_s1_7t()` | 8               |
+| II    | `melbourne_s2()` | 16              | `melbourne_s2_7t()` | 17              |
+| III   | `melbourne_s3()` | 25              | `melbourne_s3_7t()` | 27              |
+| IV    | `melbourne_s4()` | 27              | `melbourne_s4_7t()` | 31              |
 
 Colour follows the hierarchy: one hue per parent structure, with its
 subdivisions in shades of that hue, so a structure keeps its colour
@@ -60,23 +60,23 @@ options(repos = c(
   CRAN = "https://cloud.r-project.org"
 ))
 
-install.packages("ggsegTian")
+install.packages("ggsegMelbourne")
 ```
 
 You can install this package from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("ggsegverse/ggsegTian")
+pak::pak("ggsegverse/ggsegMelbourne")
 ```
 
 ## Usage
 
 ``` r
 library(ggseg)
-library(ggsegTian)
+library(ggsegMelbourne)
 
-plot(tian_s1())
+plot(melbourne_s1())
 ```
 
 <img src="man/figures/README-plot-2d-1.png" style="width:100.0%" />
@@ -84,14 +84,14 @@ plot(tian_s1())
 The finest scale, with the same structures subdivided:
 
 ``` r
-plot(tian_s4())
+plot(melbourne_s4())
 ```
 
 <img src="man/figures/README-plot-s4-1.png" style="width:100.0%" />
 
 ## Code of Conduct
 
-Please note that the ggsegTian project is released with a [Contributor
-Code of
+Please note that the ggsegMelbourne project is released with a
+[Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.

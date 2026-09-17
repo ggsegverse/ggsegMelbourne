@@ -1,4 +1,4 @@
-url: https://ggsegverse.github.io/ggsegTian/
+url: https://ggsegverse.github.io/ggsegMelbourne/
 
 template:
   package: ggseg.docs
@@ -7,7 +7,7 @@ navbar:
   components:
     github:
       icon: fa-github
-      href: https://github.com/ggsegverse/ggsegTian
+      href: https://github.com/ggsegverse/ggsegMelbourne
       aria-label: GitHub
 
 reference:
