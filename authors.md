@@ -14,16 +14,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/ggsegverse/ggsegTian/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/ggsegverse/ggsegMelbourne/blob/main/DESCRIPTION)
 
-Mowinckel A, Vidal-Pineiro D (2026). *ggsegTian: Melbourne Subcortex
-Atlas for the 'ggsegverse' Ecosystem*. R package version 0.0.0.9000,
-<https://github.com/ggsegverse/ggsegTian>.
+Mowinckel A, Vidal-Pineiro D (2026). *ggsegMelbourne: Melbourne
+Subcortex Atlas for the 'ggsegverse' Ecosystem*. R package version
+0.0.0.9000, <https://github.com/ggsegverse/ggsegMelbourne>.
 
     @Manual{,
-      title = {ggsegTian: Melbourne Subcortex Atlas for the 'ggsegverse' Ecosystem},
+      title = {ggsegMelbourne: Melbourne Subcortex Atlas for the 'ggsegverse' Ecosystem},
       author = {Athanasia Mo Mowinckel and Didac Vidal-Pineiro},
       year = {2026},
       note = {R package version 0.0.0.9000},
-      url = {https://github.com/ggsegverse/ggsegTian},
+      url = {https://github.com/ggsegverse/ggsegMelbourne},
     }

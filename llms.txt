@@ -1,4 +1,4 @@
-# ggsegTian
+# ggsegMelbourne
 
 The Melbourne Subcortex Atlas for the ggseg ecosystem.
 
@@ -14,10 +14,10 @@ finer at the same scale.
 
 | Scale | 3T | Structures/hemi | 7T | Structures/hemi |
 |----|----|----|----|----|
-| I | [`tian_s1()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 8 | [`tian_s1_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 8 |
-| II | [`tian_s2()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 16 | [`tian_s2_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 17 |
-| III | [`tian_s3()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 25 | [`tian_s3_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 27 |
-| IV | [`tian_s4()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 27 | [`tian_s4_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md) | 31 |
+| I | [`melbourne_s1()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 8 | [`melbourne_s1_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 8 |
+| II | [`melbourne_s2()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 16 | [`melbourne_s2_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 17 |
+| III | [`melbourne_s3()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 25 | [`melbourne_s3_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 27 |
+| IV | [`melbourne_s4()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 27 | [`melbourne_s4_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md) | 31 |
 
 Colour follows the hierarchy: one hue per parent structure, with its
 subdivisions in shades of that hue, so a structure keeps its colour
@@ -50,7 +50,7 @@ options(repos = c(
   CRAN = "https://cloud.r-project.org"
 ))
 
-install.packages("ggsegTian")
+install.packages("ggsegMelbourne")
 ```
 
 You can install this package from [GitHub](https://github.com/) with:
@@ -58,7 +58,7 @@ You can install this package from [GitHub](https://github.com/) with:
 ``` r
 
 # install.packages("pak")
-pak::pak("ggsegverse/ggsegTian")
+pak::pak("ggsegverse/ggsegMelbourne")
 ```
 
 ## Usage
@@ -66,9 +66,9 @@ pak::pak("ggsegverse/ggsegTian")
 ``` r
 
 library(ggseg)
-library(ggsegTian)
+library(ggsegMelbourne)
 
-plot(tian_s1())
+plot(melbourne_s1())
 ```
 
 ![](reference/figures/README-plot-2d-1.png)
@@ -77,15 +77,15 @@ The finest scale, with the same structures subdivided:
 
 ``` r
 
-plot(tian_s4())
+plot(melbourne_s4())
 ```
 
 ![](reference/figures/README-plot-s4-1.png)
 
 ## Code of Conduct
 
-Please note that the ggsegTian project is released with a [Contributor
-Code of
+Please note that the ggsegMelbourne project is released with a
+[Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
@@ -95,13 +95,13 @@ By contributing to this project, you agree to abide by its terms.
 
 Brain atlases bundled in this package
 
-- [`tian_s1()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
-  [`tian_s2()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
-  [`tian_s3()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
-  [`tian_s4()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
-  [`tian_s1_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
-  [`tian_s2_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
-  [`tian_s3_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
-  [`tian_s4_7t()`](https://ggsegverse.github.io/ggsegTian/reference/tian.md)
+- [`melbourne_s1()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
+  [`melbourne_s2()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
+  [`melbourne_s3()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
+  [`melbourne_s4()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
+  [`melbourne_s1_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
+  [`melbourne_s2_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
+  [`melbourne_s3_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
+  [`melbourne_s4_7t()`](https://ggsegverse.github.io/ggsegMelbourne/reference/melbourne.md)
   : Melbourne Subcortex Atlas
 
